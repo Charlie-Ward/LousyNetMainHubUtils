@@ -1,6 +1,7 @@
 package info.charlieward.lousynetmainhubutils.Listeners;
 
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,7 +14,10 @@ public class dropBelowYLevel5 implements Listener{
     public void onPlayerMove(PlayerMoveEvent event) {
         if(event.getTo().getBlockY() <= 5) {
             Player player = event.getPlayer();
-            player.teleport(spawn);
+            if (!player.isOp()) {
+                player.teleport(spawn);
+                player.setGameMode(GameMode.ADVENTURE);
+            }
         }
     }
 }
