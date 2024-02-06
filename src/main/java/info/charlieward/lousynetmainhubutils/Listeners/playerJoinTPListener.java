@@ -9,7 +9,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 public class playerJoinTPListener implements Listener {
 
-    Location spawn = new Location(Bukkit.getWorld("hub"),-74,35,-7,90,0);
+    Location spawn = new Location(Bukkit.getWorld("hub"),-74.5,35,-7.4,90,0);
     @EventHandler
     public void PlayerJoin(PlayerJoinEvent e) {
         Player player = e.getPlayer();
