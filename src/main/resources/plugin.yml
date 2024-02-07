@@ -2,4 +2,5 @@ name: LousyNet-MainHub-Utils
 version: '${project.version}'
 main: info.charlieward.lousynetmainhubutils.LousyNetMainHubUtils
 api-version: '1.17'
-author: 'LousyBoi'
+authors:
+  - LousyBoi
