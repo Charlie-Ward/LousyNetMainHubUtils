@@ -13,10 +13,6 @@ public class cancelBlockBreak implements Listener {
         Player player = event.getPlayer();
         if (!player.hasPermission("LousyNetMainHubUtils.BlockBreak")) {
             event.setCancelled(true);
-            player.sendMessage(ChatColor.RED + "Hey you cannot break blocks here!");
         }
-
-
-
     }
 }
