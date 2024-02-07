@@ -17,6 +17,8 @@ public class dropBelowYLevel5 implements Listener{
             if (!player.hasPermission("lousyNetMainHubUtils.goBelowY5")) {
                 player.teleport(spawn);
                 player.setGameMode(GameMode.ADVENTURE);
+            } else if (player.hasPermission("lousyNetMainHubUtils.goBelowY5") & event.getTo().getBlockY() <= 0) {
+                player.teleport(spawn);
             }
         }
     }
