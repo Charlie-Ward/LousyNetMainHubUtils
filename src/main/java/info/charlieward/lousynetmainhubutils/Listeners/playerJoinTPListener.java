@@ -15,7 +15,7 @@ public class playerJoinTPListener implements Listener {
     public void PlayerJoin(PlayerJoinEvent e) {
         Player player = e.getPlayer();
         player.teleport(spawn);
-//        player.setBedSpawnLocation(spawn);
+
         if (!player.hasPermission("lousyNetMainHubUtils.enforceGamemode")){
             player.setGameMode(GameMode.ADVENTURE);
         }
