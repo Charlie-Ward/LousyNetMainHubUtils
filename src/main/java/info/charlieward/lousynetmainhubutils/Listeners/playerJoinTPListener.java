@@ -14,7 +14,6 @@ public class playerJoinTPListener implements Listener {
     Location spawn = new Location(Bukkit.getWorld("hub"),-74.5,35,-7.5,90,0);
     @EventHandler
     public void PlayerJoin(PlayerJoinEvent e) {
-        e.setJoinMessage(null);
         Player player = e.getPlayer();
         player.teleport(spawn);
         player.sendMessage(ChatColor.GREEN + "WELCOME TO LOUSYNET!");
