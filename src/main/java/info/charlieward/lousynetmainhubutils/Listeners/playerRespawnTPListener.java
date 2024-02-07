@@ -9,11 +9,12 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 
 public class playerRespawnTPListener implements Listener {
 
-//    Location spawn = new Location(Bukkit.getWorld("hub"),-74.5,35,-7.5,90,0);
-//    @EventHandler
-//    public void PlayerRespawn(PlayerRespawnEvent event){
+    Location spawn = new Location(Bukkit.getWorld("hub"),-74.5,35,-7.5,90,0);
+    @EventHandler
+    public void PlayerRespawn(PlayerRespawnEvent event){
 //        Player player = event.getPlayer();
 //        System.out.println("Player respawned");
 //        player.teleport(spawn);
-//    }
+        event.getPlayer().setBedSpawnLocation(spawn);
+    }
 }
