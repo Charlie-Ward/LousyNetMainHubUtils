@@ -8,6 +8,6 @@ public class playerDeathDropCancel implements Listener {
 
     @EventHandler
     public void onDeathDrop(PlayerDeathEvent event) {
-        event.getEntity().getPlayer().getInventory().clear();
+        event.getDrops().clear();
     }
 }
