@@ -1,6 +1,7 @@
 package info.charlieward.lousynetmainhubutils.Listeners;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -15,7 +16,7 @@ public class playerJoinTPListener implements Listener {
     public void PlayerJoin(PlayerJoinEvent e) {
         Player player = e.getPlayer();
         player.teleport(spawn);
-
+        player.sendMessage(ChatColor.GREEN + "WELCOME TO LOUSYNET!");
         if (!player.hasPermission("lousyNetMainHubUtils.enforceGamemode")){
             player.setGameMode(GameMode.ADVENTURE);
         }
