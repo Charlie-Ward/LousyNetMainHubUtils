@@ -8,15 +8,24 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 
 public class gamemodeSelector implements Listener {
 
     @EventHandler
-    public void compassRightClick(InventoryClickEvent event) {
-        ClickType clickType = event.getClick();
+    public void compassRightClick(PlayerInteractEvent event) {
+         Player player = event.getPlayer();
+         if(player.getInventory().getItemInMainHand().getType() == Material.COMPASS) {
+            GameSelectorMenu(player);
+         } else {
+             return;
+         }
+    }
 
-        if(event.getCurrentItem() == null || event.getCurrentItem().getType() != Material.COMPASS) {
+    @EventHandler
+    public static void compassClickInInventory(InventoryClickEvent event) {
+        if (event.getCurrentItem() == null || event.getCurrentItem().getType() != Material.COMPASS) {
             return;
         }
 
