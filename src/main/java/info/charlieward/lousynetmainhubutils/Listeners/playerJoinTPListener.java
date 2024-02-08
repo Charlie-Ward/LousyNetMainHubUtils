@@ -46,7 +46,7 @@ public class playerJoinTPListener implements Listener {
         meta2.setDisplayName("");
         setItemTag(meta2, "unique", Math.random());
 
-        filler.setItemMeta(meta);
+        filler.setItemMeta(meta2);
 
         inventory.setItem(1, filler);
         inventory.setItem(2, filler);
