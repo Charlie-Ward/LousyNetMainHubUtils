@@ -18,6 +18,7 @@ public class playerJoinTPListener implements Listener {
     public void PlayerJoin(PlayerJoinEvent e) {
         Player player = e.getPlayer();
         player.teleport(spawn);
+        player.getInventory().clear();
         player.sendMessage(ChatColor.GREEN + "WELCOME TO LOUSYNET!");
         if (!player.hasPermission("lousyNetMainHubUtils.enforceGamemode")){
             player.setGameMode(GameMode.ADVENTURE);
