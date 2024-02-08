@@ -1,5 +1,6 @@
 package info.charlieward.lousynetmainhubutils.Listeners;
 
+import info.charlieward.lousynetmainhubutils.LousyNetMainHubUtils;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -8,6 +9,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
 
 import java.util.ArrayList;
 
@@ -37,5 +39,20 @@ public class playerJoinTPListener implements Listener {
         item.setItemMeta(meta);
         Inventory inventory = player.getInventory();
         inventory.setItem(4, item);
+
+        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
+        ItemMeta meta2 = filler.getItemMeta();
+
+        meta2.setDisplayName("");
+        setItemTag(meta2, "unique", Math.random());
+
+        filler.setItemMeta(meta);
+
+        inventory.setItem(1, filler);
+        inventory.setItem(2, filler);
+    }
+
+    private static void setItemTag(ItemMeta meta, String key, double value) {
+        meta.getPersistentDataContainer().set(new NamespacedKey(LousyNetMainHubUtils.getPlugin(), key), PersistentDataType.DOUBLE, value);
     }
 }
