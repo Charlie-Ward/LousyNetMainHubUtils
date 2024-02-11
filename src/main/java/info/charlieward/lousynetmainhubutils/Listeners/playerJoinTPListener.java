@@ -29,9 +29,7 @@ public class playerJoinTPListener implements Listener {
 
         ItemStack gameSelectorCompass = new ItemStack(Material.COMPASS, 1);
         ItemMeta gameSelectorCompassItemMeta = gameSelectorCompass.getItemMeta();
-
         gameSelectorCompassItemMeta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "LousyNet Game Selector");
-
         ArrayList<String> gameSelectorCompassLore = new ArrayList<String>();
         gameSelectorCompassLore.add("");
         gameSelectorCompassLore.add(ChatColor.GRAY + "Right Click to access the game selector");
@@ -46,7 +44,7 @@ public class playerJoinTPListener implements Listener {
         gameSelectorSocialMeta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Social Menu - WIP");
         ArrayList<String> gameSelectorSocialLore = new ArrayList<String>();
         gameSelectorSocialLore.add("");
-        gameSelectorSocialLore.add("Right click to access the social menu");
+        gameSelectorSocialLore.add(ChatColor.GRAY + "Right click to access the social menu");
         gameSelectorSocialLore.add("");
         gameSelectorSocialMeta.setLore(gameSelectorSocialLore);
         gameSelectorSocial.setItemMeta(gameSelectorSocialMeta);
@@ -58,7 +56,7 @@ public class playerJoinTPListener implements Listener {
             inventory.addItem(createFiller());
         }
 
-        e.getPlayer().getInventory().setHeldItemSlot(4);
+        e.getPlayer().getInventory().setHeldItemSlot(2);
     }
 
     private static ItemStack createFiller() {

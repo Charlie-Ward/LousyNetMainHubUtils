@@ -21,7 +21,7 @@ public class playerRespawnTPListener implements Listener {
     @EventHandler
     public void onRespawn(PlayerRespawnEvent event){
         event.setRespawnLocation(spawn);
-        event.getPlayer().getInventory().setHeldItemSlot(4);
+        event.getPlayer().getInventory().setHeldItemSlot(2);
 
         Player player = event.getPlayer();
 
