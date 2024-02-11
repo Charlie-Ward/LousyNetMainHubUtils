@@ -1,7 +1,6 @@
 package info.charlieward.lousynetmainhubutils.Listeners;
 
 import info.charlieward.lousynetmainhubutils.LousyNetMainHubUtils;
-import jdk.internal.icu.impl.CharTrie;
 import org.bukkit.*;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
