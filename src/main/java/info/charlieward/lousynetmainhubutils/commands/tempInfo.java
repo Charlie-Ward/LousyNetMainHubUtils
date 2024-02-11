@@ -10,6 +10,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Arrays;
 
 
 public class tempInfo implements CommandExecutor, Listener {
@@ -36,7 +37,7 @@ public class tempInfo implements CommandExecutor, Listener {
         String responseString = response.toString();
 
         String[] split = responseString.split("\"Online\":");
-        System.out.println(split);
+        System.out.println(Arrays.toString(split));
 
         return true;
     }
