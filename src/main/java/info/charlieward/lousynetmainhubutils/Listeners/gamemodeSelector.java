@@ -1,6 +1,7 @@
 package info.charlieward.lousynetmainhubutils.Listeners;
 
 import info.charlieward.lousynetmainhubutils.LousyNetMainHubUtils;
+import jdk.internal.icu.impl.CharTrie;
 import org.bukkit.*;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
@@ -48,7 +49,7 @@ public class gamemodeSelector implements Listener {
     }
 
     private static void GameSelectorMenu(Player player) {
-        Inventory gameSelector = Bukkit.createInventory(player, 54, ChatColor.GOLD + "LousyNet Game Selector");
+        Inventory gameSelector = Bukkit.createInventory(player, 54, ChatColor.GOLD  + "" + ChatColor.BOLD + "LousyNet Game Selector");
 
 
         gameSelector.setItem(0, createFiller());
