@@ -49,25 +49,19 @@ public class gamemodeSelector implements Listener {
         Inventory gameSelector = Bukkit.createInventory(player, 54, ChatColor.GREEN + "LousyNet Game Selector");
 
 
-        ItemStack Filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
-        ItemMeta fMeta = Filler.getItemMeta();
-        fMeta.setDisplayName(ChatColor.GRAY + "");
-        Filler.setItemMeta(fMeta);
-
-        gameSelector.setItem(0, Filler);
-        gameSelector.setItem(1, Filler);
-        gameSelector.setItem(2, Filler);
-        gameSelector.setItem(3, Filler);
-
-        UUID lousyBoi = UUID.fromString("40067669-5479-4f8c-aa87-d8ba9f1a65d6");
-        OfflinePlayer lousyBoiPlayer = Bukkit.getOfflinePlayer(lousyBoi);
-        ItemStack lousyHead = new ItemStack(Material.PLAYER_HEAD, 1, (short) 3);
-        SkullMeta meta = (SkullMeta) lousyHead.getItemMeta();
-        meta.setOwner("LousyBoi");
-        lousyHead.setItemMeta(meta);
-
-        gameSelector.setItem(4, lousyHead);
+        gameSelector.setItem(0, createFiller());
+        gameSelector.setItem(1, createFiller());
+        gameSelector.setItem(2, createFiller());
+        gameSelector.setItem(3, createFiller());
 
         player.openInventory(gameSelector);
     }
-}
+
+    private static ItemStack createFiller() {
+        ItemStack Filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+        ItemMeta fMeta = Filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        fMeta.getPersistentDataContainer().set(new NamespacedKey(LousyNetMainHubUtils.getPlugin(), "unique"), PersistentDataType.DOUBLE, Math.random());
+        Filler.setItemMeta(fMeta);
+        return Filler;
+    }}
