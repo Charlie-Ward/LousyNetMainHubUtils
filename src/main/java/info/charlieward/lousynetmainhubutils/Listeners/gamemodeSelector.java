@@ -87,7 +87,7 @@ public class gamemodeSelector implements Listener {
         survivalLore.add("");
         survivalSelectorMeta.setLore(survivalLore);
         survivalSelector.setItemMeta(survivalSelectorMeta);
-        gameSelector.setItem(10, createFiller());
+        gameSelector.setItem(10, survivalSelector);
 
         player.openInventory(gameSelector);
     }
