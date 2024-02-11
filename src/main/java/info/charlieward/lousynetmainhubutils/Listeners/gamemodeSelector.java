@@ -61,9 +61,9 @@ public class gamemodeSelector implements Listener {
 
         UUID lousyBoi = UUID.fromString("40067669-5479-4f8c-aa87-d8ba9f1a65d6");
         OfflinePlayer lousyBoiPlayer = Bukkit.getOfflinePlayer(lousyBoi);
-        ItemStack lousyHead = new ItemStack(Material.PLAYER_HEAD);
+        ItemStack lousyHead = new ItemStack(Material.PLAYER_HEAD, 1, (short) 3);
         SkullMeta meta = (SkullMeta) lousyHead.getItemMeta();
-        meta.setOwningPlayer(Bukkit.getOfflinePlayer(UUID.fromString("40067669-5479-4f8c-aa87-d8ba9f1a65d6")));
+        meta.setOwner("LousyBoi");
         lousyHead.setItemMeta(meta);
 
         gameSelector.setItem(4, lousyHead);
