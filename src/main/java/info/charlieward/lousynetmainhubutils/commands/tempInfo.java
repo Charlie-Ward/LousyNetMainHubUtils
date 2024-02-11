@@ -33,6 +33,8 @@ public class tempInfo implements CommandExecutor, Listener {
 
         System.out.println(response.body());
 
+        String[] split = response.body().split("\"Online\":");
+        System.out.println(split);
 
         return true;
     }
