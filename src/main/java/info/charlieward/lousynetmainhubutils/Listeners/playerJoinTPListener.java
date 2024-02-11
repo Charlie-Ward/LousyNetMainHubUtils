@@ -39,5 +39,14 @@ public class playerJoinTPListener implements Listener {
         item.setItemMeta(meta);
         Inventory inventory = player.getInventory();
         inventory.setItem(4, item);
+
+        ItemStack Filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+        ItemMeta fMeta = Filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        fMeta.getPersistentDataContainer().set(new NamespacedKey(LousyNetMainHubUtils.getPlugin(), "unique"), PersistentDataType.DOUBLE, Math.random());
+        Filler.setItemMeta(fMeta);
+
+        inventory.setItem(1, Filler);
+        inventory.setItem(2, Filler);
     }
 }
