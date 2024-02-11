@@ -39,20 +39,5 @@ public class playerJoinTPListener implements Listener {
         item.setItemMeta(meta);
         Inventory inventory = player.getInventory();
         inventory.setItem(4, item);
-
-        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
-        ItemMeta meta2 = filler.getItemMeta();
-
-        meta2.setDisplayName("");
-        setItemTag(meta2, "unique", Math.random());
-
-        filler.setItemMeta(meta2);
-
-        inventory.setItem(1, filler);
-        inventory.setItem(2, filler);
-    }
-
-    private static void setItemTag(ItemMeta meta, String key, double value) {
-        meta.getPersistentDataContainer().set(new NamespacedKey(LousyNetMainHubUtils.getPlugin(), key), PersistentDataType.DOUBLE, value);
     }
 }
