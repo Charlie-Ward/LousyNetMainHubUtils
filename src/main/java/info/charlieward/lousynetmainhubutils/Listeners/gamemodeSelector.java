@@ -64,4 +64,5 @@ public class gamemodeSelector implements Listener {
         fMeta.getPersistentDataContainer().set(new NamespacedKey(LousyNetMainHubUtils.getPlugin(), "unique"), PersistentDataType.DOUBLE, Math.random());
         Filler.setItemMeta(fMeta);
         return Filler;
-    }}
+    }
+}

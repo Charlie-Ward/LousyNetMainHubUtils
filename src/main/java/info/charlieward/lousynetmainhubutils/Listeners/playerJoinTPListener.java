@@ -39,6 +39,19 @@ public class playerJoinTPListener implements Listener {
         item.setItemMeta(meta);
         Inventory inventory = player.getInventory();
         inventory.setItem(4, item);
+
+        for(int count = 0; count < 45; count ++) {
+            inventory.addItem(createFiller());
+        }
+    }
+
+    private static ItemStack createFiller() {
+        ItemStack Filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+        ItemMeta fMeta = Filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        fMeta.getPersistentDataContainer().set(new NamespacedKey(LousyNetMainHubUtils.getPlugin(), "unique"), PersistentDataType.DOUBLE, Math.random());
+        Filler.setItemMeta(fMeta);
+        return Filler;
     }
 
 }
