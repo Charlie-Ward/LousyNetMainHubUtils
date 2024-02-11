@@ -9,6 +9,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.persistence.PersistentDataType;
 
 import java.util.ArrayList;
@@ -26,19 +27,25 @@ public class playerJoinTPListener implements Listener {
             player.setGameMode(GameMode.ADVENTURE);
         }
 
-        ItemStack item = new ItemStack(Material.COMPASS, 1);
-        ItemMeta meta = item.getItemMeta();
+        ItemStack gameSelectorCompass = new ItemStack(Material.COMPASS, 1);
+        ItemMeta gameSelectorCompassItemMeta = gameSelectorCompass.getItemMeta();
 
-        meta.setDisplayName(ChatColor.GREEN + "Game Selector");
+        gameSelectorCompassItemMeta.setDisplayName(ChatColor.GREEN + "Game Selector");
 
-        ArrayList<String> lore = new ArrayList<String>();
-        lore.add("");
-        lore.add(ChatColor.GRAY + "Right Click this compass to choose which gamemode you want to go to");
+        ArrayList<String> gameSelectorCompassLore = new ArrayList<String>();
+        gameSelectorCompassLore.add("");
+        gameSelectorCompassLore.add(ChatColor.GRAY + "Right Click this compass to choose which gamemode you want to go to");
 
-        meta.setLore(lore);
-        item.setItemMeta(meta);
+        gameSelectorCompassItemMeta.setLore(gameSelectorCompassLore);
+        gameSelectorCompass.setItemMeta(gameSelectorCompassItemMeta);
         Inventory inventory = player.getInventory();
-        inventory.setItem(4, item);
+        inventory.setItem(2, gameSelectorCompass);
+
+        ItemStack gameSelectorPlayerHead = new ItemStack(Material.PLAYER_HEAD, 1);
+        SkullMeta gameSelectorPlayerHeadSkull = (SkullMeta) gameSelectorPlayerHead.getItemMeta();
+        gameSelectorPlayerHeadSkull.setOwningPlayer(e.getPlayer());
+        gameSelectorPlayerHead.setItemMeta(gameSelectorCompassItemMeta);
+        inventory.setItem(6, gameSelectorPlayerHead);
 
         for(int count = 0; count < 45; count ++) {
             inventory.addItem(createFiller());
