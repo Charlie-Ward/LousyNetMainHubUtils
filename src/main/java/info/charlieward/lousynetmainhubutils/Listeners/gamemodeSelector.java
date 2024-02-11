@@ -2,6 +2,7 @@ package info.charlieward.lousynetmainhubutils.Listeners;
 
 import info.charlieward.lousynetmainhubutils.LousyNetMainHubUtils;
 import org.bukkit.*;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -15,6 +16,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class gamemodeSelector implements Listener {
@@ -46,13 +48,24 @@ public class gamemodeSelector implements Listener {
     }
 
     private static void GameSelectorMenu(Player player) {
-        Inventory gameSelector = Bukkit.createInventory(player, 54, ChatColor.GREEN + "LousyNet Game Selector");
+        Inventory gameSelector = Bukkit.createInventory(player, 54, ChatColor.GOLD + "LousyNet Game Selector");
 
 
         gameSelector.setItem(0, createFiller());
         gameSelector.setItem(1, createFiller());
         gameSelector.setItem(2, createFiller());
         gameSelector.setItem(3, createFiller());
+
+        ItemStack welcomeBlock = new ItemStack(Material.DIAMOND_BLOCK);
+        ItemMeta welcomeMeta = welcomeBlock.getItemMeta();
+        welcomeMeta.setDisplayName(ChatColor.GOLD + "Welcome to LousyNet");
+        ArrayList<String> welcomeLore = new ArrayList<String>();
+        welcomeLore.add("");
+        welcomeLore.add(ChatColor.GRAY + "Use this menu to see what gamemodes you can play and select one to start the fun");
+        welcomeLore.add("");
+        welcomeMeta.setLore(welcomeLore);
+        welcomeBlock.setItemMeta(welcomeMeta);
+        gameSelector.setItem(4, welcomeBlock);
 
         player.openInventory(gameSelector);
     }
