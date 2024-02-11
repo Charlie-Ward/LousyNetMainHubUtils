@@ -20,6 +20,7 @@ public final class LousyNetMainHubUtils extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new playerRespawnTPListener(), this);
         getServer().getPluginManager().registerEvents(new cancelBlockBreak(), this);
         getServer().getPluginManager().registerEvents(new gamemodeSelector(this), this);
+        getServer().getPluginManager().registerEvents(new noItemMove(), this);
     }
 
     @Override
