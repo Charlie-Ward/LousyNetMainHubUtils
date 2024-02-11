@@ -14,8 +14,11 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.UUID;
 
 public class gamemodeSelector implements Listener {
 
@@ -48,15 +51,25 @@ public class gamemodeSelector implements Listener {
     private static void GameSelectorMenu(Player player) {
         Inventory gameSelector = Bukkit.createInventory(player, 54, ChatColor.GREEN + "LousyNet Game Selector");
 
-        ItemStack filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
-        ItemMeta meta = filler.getItemMeta();
 
-        meta.setDisplayName("");
-        filler.setItemMeta(meta);
+        ItemStack Filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
+        ItemMeta fMeta = Filler.getItemMeta();
+        fMeta.setDisplayName(ChatColor.GRAY + "");
+        Filler.setItemMeta(fMeta);
 
-        for (int count = 0; count < gameSelector.getSize(); count ++) {
-            gameSelector.setItem(count, filler);
-        }
+        gameSelector.setItem(0, Filler);
+        gameSelector.setItem(1, Filler);
+        gameSelector.setItem(2, Filler);
+        gameSelector.setItem(3, Filler);
+
+        UUID lousyBoi = UUID.fromString("40067669-5479-4f8c-aa87-d8ba9f1a65d6");
+        Player lousyBoiPlayer = Bukkit.getPlayer(lousyBoi);
+        ItemStack lousyHead = new ItemStack(Material.PLAYER_HEAD);
+        SkullMeta meta = (SkullMeta) lousyHead.getItemMeta();
+        meta.setOwningPlayer(Bukkit.getOfflinePlayer(lousyBoiPlayer.getUniqueId()));
+        lousyHead.setItemMeta(meta);
+
+        gameSelector.setItem(4, lousyHead);
 
         player.openInventory(gameSelector);
     }
