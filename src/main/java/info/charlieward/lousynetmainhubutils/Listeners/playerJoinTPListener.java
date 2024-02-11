@@ -43,6 +43,8 @@ public class playerJoinTPListener implements Listener {
         for(int count = 0; count < 45; count ++) {
             inventory.addItem(createFiller());
         }
+
+        e.getPlayer().getInventory().setHeldItemSlot(4);
     }
 
     private static ItemStack createFiller() {
