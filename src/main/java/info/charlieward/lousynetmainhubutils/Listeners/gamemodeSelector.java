@@ -1,10 +1,7 @@
 package info.charlieward.lousynetmainhubutils.Listeners;
 
 import info.charlieward.lousynetmainhubutils.LousyNetMainHubUtils;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -63,10 +60,10 @@ public class gamemodeSelector implements Listener {
         gameSelector.setItem(3, Filler);
 
         UUID lousyBoi = UUID.fromString("40067669-5479-4f8c-aa87-d8ba9f1a65d6");
-        Player lousyBoiPlayer = Bukkit.getPlayer(lousyBoi);
+        OfflinePlayer lousyBoiPlayer = Bukkit.getOfflinePlayer(lousyBoi);
         ItemStack lousyHead = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta meta = (SkullMeta) lousyHead.getItemMeta();
-        meta.setOwningPlayer(Bukkit.getOfflinePlayer(lousyBoiPlayer.getUniqueId()));
+        meta.setOwningPlayer(Bukkit.getOfflinePlayer(UUID.fromString("40067669-5479-4f8c-aa87-d8ba9f1a65d6")));
         lousyHead.setItemMeta(meta);
 
         gameSelector.setItem(4, lousyHead);
