@@ -68,6 +68,27 @@ public class gamemodeSelector implements Listener {
         welcomeBlock.setItemMeta(welcomeMeta);
         gameSelector.setItem(4, welcomeBlock);
 
+        gameSelector.setItem(5, createFiller());
+        gameSelector.setItem(6, createFiller());
+        gameSelector.setItem(7, createFiller());
+        gameSelector.setItem(8, createFiller());
+
+        gameSelector.setItem(9, createFiller());
+
+        ItemStack survivalSelector = new ItemStack(Material.OAK_LOG);
+        ItemMeta survivalSelectorMeta = survivalSelector.getItemMeta();
+        survivalSelectorMeta.setDisplayName(ChatColor.GOLD + "Survival");
+        ArrayList<String> survivalLore = new ArrayList<String>();
+        survivalLore.add("");
+        survivalLore.add(ChatColor.GRAY + "Online Players: WIP");
+        survivalLore.add(ChatColor.GRAY + "MC Version: WIP");
+        survivalLore.add("");
+        survivalLore.add(ChatColor.GRAY + "Hop onto the survival server and make magnificent bases and super farms");
+        survivalLore.add("");
+        survivalSelectorMeta.setLore(survivalLore);
+        survivalSelector.setItemMeta(survivalSelectorMeta);
+        gameSelector.setItem(10, createFiller());
+
         player.openInventory(gameSelector);
     }
 
