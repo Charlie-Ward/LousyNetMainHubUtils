@@ -30,24 +30,31 @@ public class playerJoinTPListener implements Listener {
         ItemStack gameSelectorCompass = new ItemStack(Material.COMPASS, 1);
         ItemMeta gameSelectorCompassItemMeta = gameSelectorCompass.getItemMeta();
 
-        gameSelectorCompassItemMeta.setDisplayName(ChatColor.GREEN + "Game Selector");
+        gameSelectorCompassItemMeta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "LousyNet Game Selector");
 
         ArrayList<String> gameSelectorCompassLore = new ArrayList<String>();
         gameSelectorCompassLore.add("");
-        gameSelectorCompassLore.add(ChatColor.GRAY + "Right Click this compass to choose which gamemode you want to go to");
-
+        gameSelectorCompassLore.add(ChatColor.GRAY + "Right Click to access the game selector");
+        gameSelectorCompassLore.add("");
         gameSelectorCompassItemMeta.setLore(gameSelectorCompassLore);
         gameSelectorCompass.setItemMeta(gameSelectorCompassItemMeta);
         Inventory inventory = player.getInventory();
         inventory.setItem(2, gameSelectorCompass);
 
-        ItemStack gameSelectorPlayerHead = new ItemStack(Material.PLAYER_HEAD, 1);
-        SkullMeta gameSelectorPlayerHeadSkull = (SkullMeta) gameSelectorPlayerHead.getItemMeta();
-        gameSelectorPlayerHeadSkull.setOwningPlayer(e.getPlayer());
-        gameSelectorPlayerHead.setItemMeta(gameSelectorCompassItemMeta);
-        inventory.setItem(6, gameSelectorPlayerHead);
+        ItemStack gameSelectorSocial = new ItemStack(Material.PAPER, 1);
+        ItemMeta gameSelectorSocialMeta = gameSelectorSocial.getItemMeta();
+        gameSelectorSocialMeta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Social Menu - WIP");
+        ArrayList<String> gameSelectorSocialLore = new ArrayList<String>();
+        gameSelectorSocialLore.add("");
+        gameSelectorSocialLore.add("Right click to access the social menu");
+        gameSelectorSocialLore.add("");
+        gameSelectorSocialMeta.setLore(gameSelectorSocialLore);
+        gameSelectorSocial.setItemMeta(gameSelectorSocialMeta);
+        inventory.setItem(6, gameSelectorSocial);
 
-        for(int count = 0; count < 45; count ++) {
+
+
+        for(int count = 0; count < 44; count ++) {
             inventory.addItem(createFiller());
         }
 
