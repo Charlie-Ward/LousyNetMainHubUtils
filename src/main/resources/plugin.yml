@@ -4,3 +4,8 @@ main: info.charlieward.lousynetmainhubutils.LousyNetMainHubUtils
 api-version: '1.17'
 authors:
   - LousyBoi
+commands:
+  staffMode:
+    description: Toggles staff mode for a staff member
+    usage: /staffMode
+    permission: LousyNetMainHubUtils.staffMode
