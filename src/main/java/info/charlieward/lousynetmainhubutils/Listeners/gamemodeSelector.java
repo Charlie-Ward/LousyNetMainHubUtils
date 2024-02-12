@@ -33,8 +33,6 @@ public class gamemodeSelector implements Listener {
          Player player = event.getPlayer();
          if(player.getInventory().getItemInMainHand().getType() == Material.COMPASS) {
             GameSelectorMenu(player);
-         } else {
-             return;
          }
     }
 
@@ -52,10 +50,10 @@ public class gamemodeSelector implements Listener {
         Inventory gameSelector = Bukkit.createInventory(player, 54, ChatColor.GOLD  + "" + ChatColor.BOLD + "LousyNet Game Selector");
 
 
-        gameSelector.setItem(0, createFiller());
-        gameSelector.setItem(1, createFiller());
-        gameSelector.setItem(2, createFiller());
-        gameSelector.setItem(3, createFiller());
+        gameSelector.setItem(0, createFiller(false, ""));
+        gameSelector.setItem(1, createFiller(false, ""));
+        gameSelector.setItem(2, createFiller(false, ""));
+        gameSelector.setItem(3, createFiller(false, ""));
 
         ItemStack welcomeBlock = new ItemStack(Material.DIAMOND_BLOCK);
         ItemMeta welcomeMeta = welcomeBlock.getItemMeta();
@@ -68,21 +66,58 @@ public class gamemodeSelector implements Listener {
         welcomeBlock.setItemMeta(welcomeMeta);
         gameSelector.setItem(4, welcomeBlock);
 
-        gameSelector.setItem(5, createFiller());
-        gameSelector.setItem(6, createFiller());
-        gameSelector.setItem(7, createFiller());
-        gameSelector.setItem(8, createFiller());
+        gameSelector.setItem(5, createFiller(false, ""));
+        gameSelector.setItem(6, createFiller(false, ""));
+        gameSelector.setItem(7, createFiller(false, ""));
+        gameSelector.setItem(8, createFiller(false, ""));
 
-        gameSelector.setItem(9, createFiller());
-        gameSelector.setItem(10, makeGamemodeItem(Material.DIAMOND_BLOCK, "Survival", "https://api.mcsrvstat.us/3/194.163.179.210:25566", "1.17", "Hop onto the survival server and make magnificent bases and super farms"));
+        gameSelector.setItem(9, createFiller(true, "Featured Gamemodes"));
+        gameSelector.setItem(10, makeGamemodeItem(Material.WOODEN_PICKAXE, "Survival", "https://api.mcsrvstat.us/3/194.163.179.210:25566", "1.17", "Hop onto the survival server and make magnificent bases and super farms"));
+        gameSelector.setItem(11, makeGamemodeItem(Material.BEDROCK, "Creative", "https://api.mcsrvstat.us/3/194.163.179.210:25567", "1.17", "Explore only the limits of your imagination with unlimited blocks and resources."));
+        gameSelector.setItem(12, makeGamemodeItem(Material.RED_BED, "Bedwars", "https://api.mcsrvstat.us/3/194.163.179.210:25568", "1.17", "Destroy enemy beds whilst keeping yours safe to come out on top"));
+        gameSelector.setItem(13, makeGamemodeItem(Material.GRASS_BLOCK, "Skywars", "https://api.mcsrvstat.us/3/194.163.179.210:25569", "1.17", "Fight to the death in a floating arena. Just be careful to not fall into the void"));
+        gameSelector.setItem(14, makeGamemodeItem(Material.WOODEN_SWORD, "Survival Games", "https://api.mcsrvstat.us/3/194.163.179.210:25570", "1.17", "Battle to the death in this minecraft classic gamemode"));
+        gameSelector.setItem(15, makeGamemodeItem(Material.OAK_PLANKS, "Build Battle", "https://api.mcsrvstat.us/3/194.163.179.210:25571", "1.17", "Who's the best builder find out here"));
+        gameSelector.setItem(16, makeGamemodeItem(Material.BOW, "Duels", "https://api.mcsrvstat.us/3/194.163.179.210:25572", "1.17", "1v1 players to become the best at PvP"));
+        gameSelector.setItem(17, createFiller(true, "Featured Gamemodes"));
+
+        gameSelector.setItem(18, createFiller(false, ""));
+        gameSelector.setItem(19, createFiller(false, ""));
+        gameSelector.setItem(20, createFiller(false, ""));
+        gameSelector.setItem(21, createFiller(false, ""));
+        gameSelector.setItem(22, createFiller(false, ""));
+        gameSelector.setItem(23, createFiller(false, ""));
+        gameSelector.setItem(24, createFiller(false, ""));
+        gameSelector.setItem(25, createFiller(false, ""));
+        gameSelector.setItem(26, createFiller(false, ""));
+
+        gameSelector.setItem(27, createFiller(false, ""));
+        gameSelector.setItem(35, createFiller(false, ""));
+
+        gameSelector.setItem(36, createFiller(false, ""));
+        gameSelector.setItem(44, createFiller(false, ""));
+
+        gameSelector.setItem(45, createFiller(false, ""));
+        gameSelector.setItem(46, createFiller(false, ""));
+        gameSelector.setItem(47, createFiller(false, ""));
+        gameSelector.setItem(48, createFiller(false, ""));
+        gameSelector.setItem(49, createFiller(false, ""));
+        gameSelector.setItem(50, createFiller(false, ""));
+        gameSelector.setItem(51, createFiller(false, ""));
+        gameSelector.setItem(52, createFiller(false, ""));
+        gameSelector.setItem(53, createFiller(false, ""));
 
         player.openInventory(gameSelector);
     }
 
-    private static ItemStack createFiller() {
+    private static ItemStack createFiller(Boolean customName, String name) {
         ItemStack Filler = new ItemStack(Material.GRAY_STAINED_GLASS_PANE);
         ItemMeta fMeta = Filler.getItemMeta();
-        fMeta.setDisplayName(ChatColor.GRAY + "");
+        if (customName == false) {
+            fMeta.setDisplayName(ChatColor.GRAY + "");
+        } else {
+            fMeta.setDisplayName(ChatColor.GRAY + name);
+        }
         fMeta.getPersistentDataContainer().set(new NamespacedKey(LousyNetMainHubUtils.getPlugin(), "unique"), PersistentDataType.DOUBLE, Math.random());
         Filler.setItemMeta(fMeta);
         return Filler;
@@ -139,5 +174,3 @@ public class gamemodeSelector implements Listener {
         return item;
     }
 }
-
-//"https://api.mcsrvstat.us/3/194.163.179.210:25566"
