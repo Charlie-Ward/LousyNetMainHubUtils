@@ -72,13 +72,13 @@ public class gamemodeSelector implements Listener {
         gameSelector.setItem(8, createFiller(false, ""));
 
         gameSelector.setItem(9, createFiller(true, "Featured Gamemodes"));
-        gameSelector.setItem(10, makeGamemodeItem(Material.WOODEN_PICKAXE, "Survival", "https://api.mcsrvstat.us/3/194.163.179.210:25566", "1.17", "Hop onto the survival server and make magnificent bases and super farms"));
-        gameSelector.setItem(11, makeGamemodeItem(Material.BEDROCK, "Creative", "https://api.mcsrvstat.us/3/194.163.179.210:25567", "1.17", "Explore only the limits of your imagination with unlimited blocks and resources."));
-        gameSelector.setItem(12, makeGamemodeItem(Material.RED_BED, "Bedwars", "https://api.mcsrvstat.us/3/194.163.179.210:25568", "1.17", "Destroy enemy beds whilst keeping yours safe to come out on top"));
-        gameSelector.setItem(13, makeGamemodeItem(Material.GRASS_BLOCK, "Skywars", "https://api.mcsrvstat.us/3/194.163.179.210:25569", "1.17", "Fight to the death in a floating arena. Just be careful to not fall into the void"));
-        gameSelector.setItem(14, makeGamemodeItem(Material.WOODEN_SWORD, "Survival Games", "https://api.mcsrvstat.us/3/194.163.179.210:25570", "1.17", "Battle to the death in this minecraft classic gamemode"));
-        gameSelector.setItem(15, makeGamemodeItem(Material.OAK_PLANKS, "Build Battle", "https://api.mcsrvstat.us/3/194.163.179.210:25571", "1.17", "Who's the best builder find out here"));
-        gameSelector.setItem(16, makeGamemodeItem(Material.BOW, "Duels", "https://api.mcsrvstat.us/3/194.163.179.210:25572", "1.17", "1v1 players to become the best at PvP"));
+        gameSelector.setItem(10, makeGamemodeItem(Material.CRAFTING_TABLE, "Survival", "https://api.mcsrvstat.us/3/194.163.179.210:25568", "1.17", "Hop onto the survival server and make magnificent bases and super farms"));
+        gameSelector.setItem(11, makeGamemodeItem(Material.BEDROCK, "Creative", "https://api.mcsrvstat.us/3/194.163.179.210:25568", "1.17", "Explore only the limits of your imagination with unlimited blocks and resources."));
+        gameSelector.setItem(12, makeGamemodeItem(Material.RED_BED, "Bedwars", "https://api.mcsrvstat.us/3/194.163.179.210:25569", "1.17", "Destroy enemy beds whilst keeping yours safe to come out on top"));
+        gameSelector.setItem(13, makeGamemodeItem(Material.GRASS_BLOCK, "Skywars", "https://api.mcsrvstat.us/3/194.163.179.210:25570", "1.17", "Fight to the death in a floating arena. Just be careful to not fall into the void"));
+        gameSelector.setItem(14, makeGamemodeItem(Material.BOW, "Survival Games", "https://api.mcsrvstat.us/3/194.163.179.210:25571", "1.17", "Battle to the death in this minecraft classic gamemode"));
+        gameSelector.setItem(15, makeGamemodeItem(Material.OAK_PLANKS, "Build Battle", "https://api.mcsrvstat.us/3/194.163.179.210:25572", "1.17", "Who's the best builder find out here"));
+        gameSelector.setItem(16, makeGamemodeItem(Material.GOLDEN_APPLE, "Duels", "https://api.mcsrvstat.us/3/194.163.179.210:25573", "1.17", "1v1 players to become the best at PvP"));
         gameSelector.setItem(17, createFiller(true, "Featured Gamemodes"));
 
         gameSelector.setItem(18, createFiller(false, ""));
@@ -101,7 +101,7 @@ public class gamemodeSelector implements Listener {
         gameSelector.setItem(46, createFiller(false, ""));
         gameSelector.setItem(47, createFiller(false, ""));
         gameSelector.setItem(48, createFiller(false, ""));
-        gameSelector.setItem(49, createFiller(false, ""));
+        gameSelector.setItem(49, makeGamemodeItem(Material.OAK_DOOR, "Main Hub", "https://api.mcsrvstat.us/3/194.163.179.210:25567", "1.17", "Return to the main lobby"));
         gameSelector.setItem(50, createFiller(false, ""));
         gameSelector.setItem(51, createFiller(false, ""));
         gameSelector.setItem(52, createFiller(false, ""));
@@ -158,11 +158,10 @@ public class gamemodeSelector implements Listener {
         itemMeta.setDisplayName(ChatColor.GOLD + gamemodeName);
         ArrayList<String> itemLore = new ArrayList<String>();
         itemLore.add("");
-        itemLore.add(ChatColor.WHITE + "Players" + ChatColor.GRAY + serverInfo);
-        itemLore.add(ChatColor.WHITE + "Minecraft Version" + ChatColor.GRAY + serverMCversion);
+        itemLore.add(ChatColor.WHITE + "Players: " + ChatColor.GRAY + serverInfo);
+        itemLore.add(ChatColor.WHITE + "Minecraft Version: " + ChatColor.GRAY + serverMCversion);
         itemLore.add("");
         itemLore.add(ChatColor.GRAY + description);
-        itemLore.add("");
         if (serverInfo.equals("Server Offline")) {
             itemLore.add(ChatColor.RED + "Server Offline");
         } else {
