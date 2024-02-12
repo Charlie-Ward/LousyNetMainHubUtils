@@ -16,6 +16,11 @@ import java.util.ArrayList;
 
 public class playerJoinTPListener implements Listener {
 
+    LousyNetMainHubUtils plugin;
+
+    public playerJoinTPListener(LousyNetMainHubUtils plugin) {
+        this.plugin = plugin;
+    }
     Location spawn = new Location(Bukkit.getWorld("hub"),-74.5,35,-7.5,90,0);
     @EventHandler
     public void PlayerJoin(PlayerJoinEvent e) {
@@ -23,7 +28,7 @@ public class playerJoinTPListener implements Listener {
         player.teleport(spawn);
         player.getInventory().clear();
         player.sendMessage(ChatColor.GREEN + "WELCOME TO LOUSYNET!");
-        if (!player.hasPermission("lousyNetMainHubUtils.enforceGamemode")){
+        if (!(plugin.staffModeList.contains(player.getDisplayName()))){
             player.setGameMode(GameMode.ADVENTURE);
         }
 

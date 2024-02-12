@@ -21,12 +21,12 @@ public final class LousyNetMainHubUtils extends JavaPlugin {
 
         getCommand("staffMode").setExecutor(new staffMode(this));
 
-        getServer().getPluginManager().registerEvents(new playerJoinTPListener(), this);
-        getServer().getPluginManager().registerEvents(new dropBelowYLevel5(), this);
+        getServer().getPluginManager().registerEvents(new playerJoinTPListener(this), this);
+        getServer().getPluginManager().registerEvents(new dropBelowYLevel5(this), this);
         getServer().getPluginManager().registerEvents(new playerRespawnTPListener(), this);
-        getServer().getPluginManager().registerEvents(new cancelBlockBreak(), this);
+        getServer().getPluginManager().registerEvents(new cancelBlockBreak(this), this);
         getServer().getPluginManager().registerEvents(new gamemodeSelector(this), this);
-        getServer().getPluginManager().registerEvents(new noItemMove(), this);
+        getServer().getPluginManager().registerEvents(new noItemMove(this), this);
     }
 
     @Override
