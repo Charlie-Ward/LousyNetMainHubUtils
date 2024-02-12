@@ -101,7 +101,7 @@ public class gamemodeSelector implements Listener {
         gameSelector.setItem(46, createFiller(false, ""));
         gameSelector.setItem(47, createFiller(false, ""));
         gameSelector.setItem(48, createFiller(false, ""));
-        gameSelector.setItem(49, makeGamemodeItem(Material.OAK_DOOR, "Main Hub", "https://api.mcsrvstat.us/3/194.163.179.210:25567", "1.17", "Return to the main lobby"));
+        gameSelector.setItem(49, makeGamemodeItem(Material.OAK_DOOR, "Main Hub", "https://api.mcsrvstat.us/3/194.163.179.210:25566", "1.17", "Return to the main lobby"));
         gameSelector.setItem(50, createFiller(false, ""));
         gameSelector.setItem(51, createFiller(false, ""));
         gameSelector.setItem(52, createFiller(false, ""));
