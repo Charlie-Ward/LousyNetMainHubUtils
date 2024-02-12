@@ -1,7 +1,6 @@
 package info.charlieward.lousynetmainhubutils;
 
 import info.charlieward.lousynetmainhubutils.Listeners.*;
-import info.charlieward.lousynetmainhubutils.commands.tempInfo;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class LousyNetMainHubUtils extends JavaPlugin {
@@ -14,8 +13,6 @@ public final class LousyNetMainHubUtils extends JavaPlugin {
         plugin = this;
 
         getLogger().info("LousyNet-MainHub-Utils v." + this.getDescription().getVersion() + " has loaded.");
-
-        getCommand("info").setExecutor(new tempInfo());
 
         getServer().getPluginManager().registerEvents(new playerJoinTPListener(), this);
         getServer().getPluginManager().registerEvents(new dropBelowYLevel5(), this);
