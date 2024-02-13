@@ -137,6 +137,7 @@ public class gamemodeSelector implements Listener {
             if (serverID.equals("")){
                 itemLore.add(ChatColor.WHITE + "Total Players: " + ChatColor.GRAY + "Server Offline");
             } else {
+                System.out.println(playerCount);
                 itemLore.add(ChatColor.WHITE + "Total Players: " + ChatColor.GRAY + playerCount);
             }
         }
