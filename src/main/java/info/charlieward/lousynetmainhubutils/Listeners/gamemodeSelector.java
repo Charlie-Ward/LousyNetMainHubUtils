@@ -124,54 +124,17 @@ public class gamemodeSelector implements Listener {
         return Filler;
     }
 
-    private static String getServerCount(String URL) {
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(URL))
-                .method("GET", HttpRequest.BodyPublishers.noBody())
-                .build();
-        HttpResponse<String> response = null;
-
-        try {
-            response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
-        String[] split = response.body().split("online", 2);
-        String[] split2 = split[1].split(":", 2);
-
-        if (split2[1].contains("max")) {
-            String[] split3 = split2[1].split(",", 2);
-            return split3[0];
-        } else {
-            return "Server Offline";
-        }
-    }
-
     public static ItemStack makeGamemodeItem(Material blockItem, String gamemodeName, String serverID, String serverMCversion, String description) {
-        boolean serverExists;
-        if (serverID.isEmpty()) {
-            serverExists = false;
-        } else {
-            serverExists = true;
-        }
         String playerCount = plugin.jedis.get(serverID);
         ItemStack item = new ItemStack(blockItem);
         ItemMeta itemMeta = item.getItemMeta();
         itemMeta.setDisplayName(ChatColor.GOLD + gamemodeName);
         ArrayList<String> itemLore = new ArrayList<String>();
         itemLore.add("");
-        if (!serverExists) {
-            itemLore.add(ChatColor.WHITE + "Players: " + ChatColor.GRAY + "Not Yet Released");
+        if (playerCount == null) {
+            itemLore.add(ChatColor.WHITE + "Total Players: " + ChatColor.GRAY + "Server Offline");
         } else {
-            if (playerCount.equals("null")) {
-                itemLore.add(ChatColor.WHITE + "Players: " + ChatColor.GRAY + "Server Offline");
-            } else {
-                itemLore.add(ChatColor.WHITE + "Players: " + ChatColor.GRAY + playerCount);
-            }
+            itemLore.add(ChatColor.WHITE + "Total Players: " + ChatColor.GRAY + playerCount);
         }
         itemLore.add(ChatColor.WHITE + "Minecraft Version: " + ChatColor.GRAY + serverMCversion);
         itemLore.add("");
