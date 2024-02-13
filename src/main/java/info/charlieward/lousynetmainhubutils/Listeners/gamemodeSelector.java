@@ -151,23 +151,20 @@ public class gamemodeSelector implements Listener {
     }
 
     public static ItemStack makeGamemodeItem(Material blockItem, String gamemodeName, String URL, String serverMCversion, String description) {
-        String serverInfo = getServerCount(URL);
-
         ItemStack item = new ItemStack(blockItem);
         ItemMeta itemMeta = item.getItemMeta();
         itemMeta.setDisplayName(ChatColor.GOLD + gamemodeName);
         ArrayList<String> itemLore = new ArrayList<String>();
         itemLore.add("");
-        itemLore.add(ChatColor.WHITE + "Players: " + ChatColor.GRAY + serverInfo);
+        itemLore.add(ChatColor.WHITE + "Players: " + ChatColor.GRAY + "WIP");
         itemLore.add(ChatColor.WHITE + "Minecraft Version: " + ChatColor.GRAY + serverMCversion);
         itemLore.add("");
         itemLore.add(ChatColor.GRAY + description);
-        if (serverInfo.equals("Server Offline")) {
-            itemLore.add(ChatColor.RED + "Server Offline");
-        } else {
+//        if (serverInfo.equals("Server Offline")) {
+//            itemLore.add(ChatColor.RED + "Server Offline");
+//        } else {
             itemLore.add(ChatColor.GREEN + "Play Now!");
-        }
-        itemLore.add("");
+//        }
         itemMeta.setLore(itemLore);
         item.setItemMeta(itemMeta);
         return item;
