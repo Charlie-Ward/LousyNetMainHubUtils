@@ -19,6 +19,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class gamemodeSelector implements Listener {
 
@@ -151,16 +152,26 @@ public class gamemodeSelector implements Listener {
     }
 
     public static ItemStack makeGamemodeItem(Material blockItem, String gamemodeName, String serverID, String serverMCversion, String description) {
+        boolean serverExists;
+        if (serverID.isEmpty()) {
+            serverExists = false;
+        } else {
+            serverExists = true;
+        }
         String playerCount = plugin.jedis.get(serverID);
         ItemStack item = new ItemStack(blockItem);
         ItemMeta itemMeta = item.getItemMeta();
         itemMeta.setDisplayName(ChatColor.GOLD + gamemodeName);
         ArrayList<String> itemLore = new ArrayList<String>();
         itemLore.add("");
-        if (playerCount.equals("null")) {
-            itemLore.add(ChatColor.WHITE + "Players: " + ChatColor.GRAY + "Sever Offline");
+        if (!serverExists) {
+            itemLore.add(ChatColor.WHITE + "Players: " + ChatColor.GRAY + "Not Yet Released");
         } else {
-            itemLore.add(ChatColor.WHITE + "Players: " + ChatColor.GRAY + playerCount);
+            if (playerCount.equals("null")) {
+                itemLore.add(ChatColor.WHITE + "Players: " + ChatColor.GRAY + "Server Offline");
+            } else {
+                itemLore.add(ChatColor.WHITE + "Players: " + ChatColor.GRAY + playerCount);
+            }
         }
         itemLore.add(ChatColor.WHITE + "Minecraft Version: " + ChatColor.GRAY + serverMCversion);
         itemLore.add("");
