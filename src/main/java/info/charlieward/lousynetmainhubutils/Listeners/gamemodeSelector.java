@@ -131,7 +131,6 @@ public class gamemodeSelector implements Listener {
         itemMeta.setDisplayName(ChatColor.GOLD + gamemodeName);
         ArrayList<String> itemLore = new ArrayList<String>();
         itemLore.add("");
-        System.out.println(gamemodeName + playerCount);
         if (playerCount == null) {
             itemLore.add(ChatColor.WHITE + "Total Players: " + ChatColor.GRAY + "Server Offline");
         } else {
