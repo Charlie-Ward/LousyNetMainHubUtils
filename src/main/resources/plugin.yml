@@ -9,5 +9,3 @@ commands:
     description: Toggles staff mode for a staff member
     usage: /staffMode
     permission: LousyNetMainHubUtils.staffMode
-  testInfo:
-    usage: /testInfo
