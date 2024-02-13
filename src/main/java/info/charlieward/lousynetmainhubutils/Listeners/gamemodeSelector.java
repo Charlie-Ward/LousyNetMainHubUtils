@@ -132,15 +132,27 @@ public class gamemodeSelector implements Listener {
         ArrayList<String> itemLore = new ArrayList<String>();
         itemLore.add("");
         System.out.println(gamemodeName + playerCount);
-        if (playerCount == null || playerCount == "null") {
+        if (playerCount == null) {
             itemLore.add(ChatColor.WHITE + "Total Players: " + ChatColor.GRAY + "Server Offline");
         } else {
-            itemLore.add(ChatColor.WHITE + "Total Players: " + ChatColor.GRAY + playerCount);
+            if (serverID.equals("")){
+                itemLore.add(ChatColor.WHITE + "Total Players: " + ChatColor.GRAY + "Server Offline");
+            } else {
+                itemLore.add(ChatColor.WHITE + "Total Players: " + ChatColor.GRAY + playerCount);
+            }
         }
         itemLore.add(ChatColor.WHITE + "Minecraft Version: " + ChatColor.GRAY + serverMCversion);
         itemLore.add("");
         itemLore.add(ChatColor.GRAY + description);
-        itemLore.add(ChatColor.GREEN + "Play Now!");
+        if (playerCount == null) {
+            itemLore.add(ChatColor.RED + "Server Offline");
+        } else {
+            if (serverID.equals("")){
+                itemLore.add(ChatColor.RED + "Server Offline");
+            } else {
+                itemLore.add(ChatColor.GREEN + "Play Now!");
+            }
+        }
         itemMeta.setLore(itemLore);
         item.setItemMeta(itemMeta);
         return item;
