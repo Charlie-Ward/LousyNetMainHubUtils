@@ -16,7 +16,7 @@ public class testInfo implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         System.out.println("Player count info");
-        System.out.println(plugin.jedis.get("HubPlayerCount"));
+        System.out.println(plugin.jedis.get("hubPlayerCount"));
         return true;
     }
 }
