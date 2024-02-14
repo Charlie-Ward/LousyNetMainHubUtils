@@ -58,8 +58,12 @@ public class gamemodeSelectorListener implements Listener {
         if (serverStatus == null || serverStatus.equals("offline")) {
             player.sendMessage(ChatColor.BLUE + "[LousyNet] " + "This server is not currently online");
         } else {
-            player.sendMessage(ChatColor.BLUE + "[LousyNet] " + ChatColor.WHITE + "Sending you to " + serverName);
-            LousyNetMainHubUtils.sendPlayerToServer(player, serverID);
+            if (serverID == "") {
+                player.sendMessage(ChatColor.BLUE + "[LousyNet] " + "This server is not currently online");
+            } else {
+                player.sendMessage(ChatColor.BLUE + "[LousyNet] " + ChatColor.WHITE + "Sending you to " + serverName);
+                LousyNetMainHubUtils.sendPlayerToServer(player, serverID);
+            }
         }
     }
 }
