@@ -50,7 +50,7 @@ public class gamemodeSelectorListener implements Listener {
                     itemClicked("", "Duels", player);
                     break;
                 case OAK_DOOR:
-                    itemClicked("hub", "Hub", player);
+                    itemClicked("mainHub", "Hub", player);
             }
         }
     }
@@ -62,6 +62,8 @@ public class gamemodeSelectorListener implements Listener {
         } else {
             if (serverID == "") {
                 player.sendMessage(ChatColor.BLUE + "[LousyNet] " + ChatColor.WHITE + "This server is not currently online");
+            } else if (serverID == "mainHub") {
+                player.sendMessage(ChatColor.BLUE + "[LousyNet] " + ChatColor.WHITE + "You are already connected to this server");
             } else {
                 player.sendMessage(ChatColor.BLUE + "[LousyNet] " + ChatColor.WHITE + "Sending you to " + serverName);
                 LousyNetMainHubUtils.sendPlayerToServer(player, serverID);
