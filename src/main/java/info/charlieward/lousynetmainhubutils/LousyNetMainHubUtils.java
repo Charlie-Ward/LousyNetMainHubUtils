@@ -37,7 +37,7 @@ public final class LousyNetMainHubUtils extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new gamemodeSelector(this), this);
         getServer().getPluginManager().registerEvents(new noItemMove(this), this);
         getServer().getPluginManager().registerEvents(new noItemDrops(this), this);
-        getServer().getPluginManager().registerEvents(new gamemodeSelectorListener(), this);
+        getServer().getPluginManager().registerEvents(new gamemodeSelectorListener(this), this);
     }
 
     @Override
