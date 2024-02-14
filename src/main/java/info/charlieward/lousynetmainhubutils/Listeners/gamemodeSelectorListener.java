@@ -49,6 +49,8 @@ public class gamemodeSelectorListener implements Listener {
                 case GOLDEN_APPLE:
                     itemClicked("", "Duels", player);
                     break;
+                case OAK_DOOR:
+                    itemClicked("hub", "Hub", player);
             }
         }
     }
@@ -56,10 +58,10 @@ public class gamemodeSelectorListener implements Listener {
     public void itemClicked(String serverID, String serverName, Player player) {
         String serverStatus = plugin.jedis.get(serverID);
         if (serverStatus == null || serverStatus.equals("offline")) {
-            player.sendMessage(ChatColor.BLUE + "[LousyNet] " + "This server is not currently online");
+            player.sendMessage(ChatColor.BLUE + "[LousyNet] " + ChatColor.WHITE + "This server is not currently online");
         } else {
             if (serverID == "") {
-                player.sendMessage(ChatColor.BLUE + "[LousyNet] " + "This server is not currently online");
+                player.sendMessage(ChatColor.BLUE + "[LousyNet] " + ChatColor.WHITE + "This server is not currently online");
             } else {
                 player.sendMessage(ChatColor.BLUE + "[LousyNet] " + ChatColor.WHITE + "Sending you to " + serverName);
                 LousyNetMainHubUtils.sendPlayerToServer(player, serverID);
