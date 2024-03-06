@@ -2,6 +2,7 @@ package info.charlieward.lousynetmainhubutils.Listeners;
 
 import info.charlieward.lousynetmainhubutils.LousyNetMainHubUtils;
 import org.bukkit.*;
+import org.bukkit.block.Skull;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -44,16 +45,17 @@ public class playerJoinTPListener implements Listener {
         Inventory inventory = player.getInventory();
         inventory.setItem(2, gameSelectorCompass);
 
-        ItemStack gameSelectorSocial = new ItemStack(Material.PAPER, 1);
-        ItemMeta gameSelectorSocialMeta = gameSelectorSocial.getItemMeta();
-        gameSelectorSocialMeta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Social Menu - WIP");
-        ArrayList<String> gameSelectorSocialLore = new ArrayList<String>();
-        gameSelectorSocialLore.add("");
-        gameSelectorSocialLore.add(ChatColor.GRAY + "Right click to access the social menu");
-        gameSelectorSocialLore.add("");
-        gameSelectorSocialMeta.setLore(gameSelectorSocialLore);
-        gameSelectorSocial.setItemMeta(gameSelectorSocialMeta);
-        inventory.setItem(6, gameSelectorSocial);
+        ItemStack socialSelector = new ItemStack(Material.PLAYER_HEAD);
+        SkullMeta meta = (SkullMeta) socialSelector.getItemMeta();
+        meta.setOwningPlayer(player);
+        meta.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "Social Menu - WIP");
+        ArrayList<String> SocialLore = new ArrayList<String>();
+        SocialLore.add("");
+        SocialLore.add(ChatColor.GRAY + "Right click to access the social menu");
+        SocialLore.add("");
+        meta.setLore(SocialLore);
+        socialSelector.setItemMeta(meta);
+        inventory.setItem(6, socialSelector);
 
         e.getPlayer().getInventory().setHeldItemSlot(2);
     }

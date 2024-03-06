@@ -42,6 +42,8 @@ public final class LousyNetMainHubUtils extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        this.getServer().getMessenger().unregisterOutgoingPluginChannel(this);
+
         getLogger().info("LousyNet-MainHub-Utils v." + this.getDescription().getVersion() + " has been disabled.");
     }
 
